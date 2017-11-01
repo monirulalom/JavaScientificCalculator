@@ -45,6 +45,7 @@ public class Calc {
         });
 
         JTextField result = new JTextField("", 20);
+        result.setHorizontalAlignment(SwingConstants.RIGHT);
         result.setBounds(20, 20, 550, 30);
         frame.add(result);
 
