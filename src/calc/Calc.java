@@ -23,6 +23,7 @@ public class Calc {
         frame.setIconImage(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/calc/icon.png")).getImage());
 
         frame.setSize(600, 600);
+        frame.setResizable(false);
 
         JMenuBar menubar = new JMenuBar();
         JMenuItem menu = new JMenuItem("Credits");
