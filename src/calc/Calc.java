@@ -32,7 +32,7 @@ public class Calc {
         credits.setIconImage(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/calc/icon.png")).getImage());
         credits.setTitle("Credits");
         credits.setSize(250, 250);
-        JLabel text = new JLabel("<html>Made by Team Vikings<br>Members<br>Md. Monirul Alom (Team leader) <br> Sheher Jahan Rahni <br> Sadia Jahan Misti <br> Moshiur Rahman Khan <br> Salman</html>", SwingConstants.CENTER);
+        JLabel text = new JLabel("<html>Made by Team Vikings<br>Members<br>Md. Monirul Alom (Team leader) <br> Sheher Jahan Rashni <br> Sadia Jahan Misti <br> Moshiur Rahman Khan <br>K M Salman Hossain</html>", SwingConstants.CENTER);
         credits.add(text);
 
         menu.addActionListener(new ActionListener() {
