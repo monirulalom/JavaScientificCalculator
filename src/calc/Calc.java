@@ -64,6 +64,11 @@ public class Calc {
         JButton btnfordigit7 = new JButton("7");
         JButton btnfordigit8 = new JButton("8");
         JButton btnfordigit9 = new JButton("9");
+        JButton btnformulti = new JButton("*");
+        JButton btnforbksp = new JButton("←");
+        JButton btnforc = new JButton("C");
+        JButton btnforroot = new JButton("√");
+        JButton btnfordivide = new JButton("/");
 
         btnforpoint.setBounds(30, 480, 50, 50);
         btnfordigit0.setBounds(90, 480, 50, 50);
@@ -80,6 +85,11 @@ public class Calc {
         btnfordigit7.setBounds(30, 240, 50, 50);
         btnfordigit8.setBounds(90, 240, 50, 50);
         btnfordigit9.setBounds(150, 240, 50, 50);
+        btnformulti.setBounds(210, 240, 50, 50);
+        btnforbksp.setBounds(30, 160, 50, 50);
+        btnforc.setBounds(90, 160, 50, 50);
+        btnforroot.setBounds(150, 160, 50, 50);
+        btnfordivide.setBounds(210, 160, 50, 50);
 
         frame.add(btnforpoint);
         frame.add(btnfordigit0);
@@ -93,8 +103,14 @@ public class Calc {
         frame.add(btnfordigit5);
         frame.add(btnfordigit6);
         frame.add(btnforminus);
-        //frame.add(btnfordigit8);
         frame.add(btnfordigit7);
+        frame.add(btnfordigit8);
+        frame.add(btnfordigit9);
+        frame.add(btnformulti);
+        frame.add(btnforbksp);
+        frame.add(btnforc);
+        frame.add(btnforroot);
+        frame.add(btnfordivide);
 
         frame.setLayout(null);
         frame.setVisible(true);
