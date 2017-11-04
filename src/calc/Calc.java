@@ -5,7 +5,13 @@ import java.awt.event.*;
 import javax.swing.*;
 import static javax.swing.JFrame.*;
 
-public class Calc {
+public class Calc  extends JFrame{
+
+    double firstvalue, seconvalue, output;
+    String operation;
+    private Object math;
+    
+    
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Scientific Calculator"); // Creating a frame for calculator with tile "Scientific Calculator"
@@ -36,13 +42,13 @@ public class Calc {
             }
         });
 
+        
         JTextField result = new JTextField("", 40);             // added text field for showing calcuation
         result.setHorizontalAlignment(SwingConstants.RIGHT);    // text alignment is set to right for the text field
 
         result.setBounds(20, 20, 550, 40);                    //      public void setBounds(int x,int y,int width,int height)
         frame.add(result);
 
-        
         // creating buttons
         JButton btnforpoint = new JButton(".");
         JButton btnfordigit0 = new JButton("0");
@@ -89,7 +95,6 @@ public class Calc {
         btnfordivide.setBounds(210, 100, 50, 50);
 
         // adding buttons to the frame 
-        
         frame.add(btnforpoint);
         frame.add(btnfordigit0);
         frame.add(btnfordigit1);
@@ -116,4 +121,10 @@ public class Calc {
 
     }
 
+    private  void btnfordigit1ActionPerformed(ActionEvent evt) {
+        String digit;
+        digit = result.getLabel() + btnfordigit1.getText();
+        result.setText(digit);
+
+    }
 }
