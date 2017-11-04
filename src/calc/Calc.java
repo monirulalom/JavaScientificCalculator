@@ -5,15 +5,13 @@ import java.awt.event.*;
 import javax.swing.*;
 import static javax.swing.JFrame.*;
 
-public class Calc  extends JFrame{
-
-    double firstvalue, seconvalue, output;
-    String operation;
-    private Object math;
-    
-    
+public class Calc {
 
     public static void main(String[] args) {
+        double firstvalue, seconvalue, output;
+        String operation;
+        Object math;
+
         JFrame frame = new JFrame("Scientific Calculator"); // Creating a frame for calculator with tile "Scientific Calculator"
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);  // Stops prgram execution when close button is clicked
 
@@ -42,7 +40,6 @@ public class Calc  extends JFrame{
             }
         });
 
-        
         JTextField result = new JTextField("", 40);             // added text field for showing calcuation
         result.setHorizontalAlignment(SwingConstants.RIGHT);    // text alignment is set to right for the text field
 
@@ -116,15 +113,128 @@ public class Calc  extends JFrame{
         frame.add(btnforroot);
         frame.add(btnfordivide);
 
+        // Action listeners
+        btnfordigit1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                String displaytext = result.getText() + btnfordigit1.getText();
+                result.setText(displaytext);
+
+            }
+        });
+        btnfordigit2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                String displaytext = result.getText() + btnfordigit2.getText();
+                result.setText(displaytext);
+
+            }
+        });
+        btnfordigit3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                String displaytext = result.getText() + btnfordigit3.getText();
+                result.setText(displaytext);
+
+            }
+        });
+        btnfordigit4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                String displaytext = result.getText() + btnfordigit4.getText();
+                result.setText(displaytext);
+
+            }
+        });
+        btnfordigit5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                String displaytext = result.getText() + btnfordigit5.getText();
+                result.setText(displaytext);
+
+            }
+        });
+        btnfordigit6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                String displaytext = result.getText() + btnfordigit6.getText();
+                result.setText(displaytext);
+
+            }
+        });
+
+        btnfordigit7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                String displaytext = result.getText() + btnfordigit7.getText();
+                result.setText(displaytext);
+
+            }
+        });
+
+        btnfordigit8.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                String displaytext = result.getText() + btnfordigit9.getText();
+                result.setText(displaytext);
+
+            }
+        });
+
+        btnfordigit9.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                String displaytext = result.getText() + btnfordigit9.getText();
+                result.setText(displaytext);
+
+            }
+        });
+
+        btnfordigit0.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                String displaytext = result.getText() + btnfordigit0.getText();
+                result.setText(displaytext);
+
+            }
+        });
+
+        btnforpoint.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                if (!result.getText().contains(".")) {
+                    String displaytext = result.getText() + btnforpoint.getText();
+                    result.setText(displaytext);
+                }
+
+            }
+        });
+
+        btnforc.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                result.setText("");
+            }
+        });
+
+        btnforbksp.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                String bksp = null;
+                if (result.getText().length() > 0) {
+
+                    StringBuilder strB = new StringBuilder(result.getText());
+                    strB.deleteCharAt(result.getText().length() - 1);
+                    bksp = strB.toString();
+                    result.setText(bksp);
+
+                }
+
+            }
+        });
+
         frame.setLayout(null);          // diabling layout manager
         frame.setVisible(true);         // seeting the main frame visible
-
-    }
-
-    private  void btnfordigit1ActionPerformed(ActionEvent evt) {
-        String digit;
-        digit = result.getLabel() + btnfordigit1.getText();
-        result.setText(digit);
 
     }
 }
