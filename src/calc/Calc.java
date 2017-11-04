@@ -1,54 +1,53 @@
 package calc;
 
 import static com.sun.javafx.scene.control.skin.Utils.getResource;
-import java.awt.BorderLayout;
-import java.awt.Toolkit;
-import static java.awt.Toolkit.getDefaultToolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
+import java.awt.*;
+import java.awt.Toolkit.*;
+import java.awt.event.*;
+import java.io.*;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import static javax.swing.JFrame.*;
-import javax.swing.event.MenuEvent;
-import javax.swing.event.MenuListener;
 
 public class Calc {
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Scientific Calculator");
-        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        JFrame frame = new JFrame("Scientific Calculator"); // Creating a frame for calculator with tile "Scientific Calculator"
+        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);  // Stops prgram execution when close button is clicked
 
-        frame.setIconImage(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/calc/icon.png")).getImage());
+        frame.setIconImage(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/calc/icon.png")).getImage()); // Setting icon for the frame
 
-        frame.setSize(600, 600);
-        frame.setResizable(false);
+        frame.setSize(600, 600);   // setting frame size 600x600px
+        frame.setResizable(false);  // this prevents resizing windows 
 
-        JMenuBar menubar = new JMenuBar();
-        JMenuItem menu = new JMenuItem("Credits");
-        menubar.add(menu);
-        frame.setJMenuBar(menubar);
-        JFrame credits = new JFrame();
-        credits.setIconImage(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/calc/icon.png")).getImage());
-        credits.setTitle("Credits");
-        credits.setSize(250, 250);
-        JLabel text = new JLabel("<html>Made by Team Vikings<br>Members<br>Md. Monirul Alom (Team leader) <br> Sheher Jahan Rashni <br> Sadia Afrin Misti <br> Moshiur Rahman Khan <br>K M Salman Tahery Hossain</html>", SwingConstants.CENTER);
-        credits.add(text);
+        JMenuBar menubar = new JMenuBar();         // Crating a menubar
+        JMenuItem menu = new JMenuItem("Credits");  // adding a menu item in the menubar
+        menubar.add(menu);                          // adding created menu item to the menubar
+        frame.setJMenuBar(menubar);                 // ading menubar to the frane
+        JFrame credits = new JFrame();              // adding a new frame for credits
+        credits.setIconImage(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/calc/icon.png")).getImage());  // adding icon to the credit frame
+        credits.setTitle("Credits");             // setting title for the credits frame
+        credits.setSize(250, 250);               // setting credits frame 250x2500px
+        JLabel text = new JLabel("<html>Made by Team Vikings<br>Members<br>Md. Monirul Alom (Team leader) <br> Sheher Jahan Rashni <br> Sadia Afrin Misti <br> Moshiur Rahman Khan <br>K M Salman Hossain</html>", SwingConstants.CENTER);  // create label with text for label
+        credits.add(text);   // label added to frame credits
 
+        // if any actions are performed on the menu item this funtion is invoked
         menu.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
 
-                credits.setVisible(true);
+                credits.setVisible(true);            // setting credits frame visible
             }
         });
 
-        JTextField result = new JTextField("", 20);
-        result.setHorizontalAlignment(SwingConstants.RIGHT);
-        result.setBounds(20, 20, 550, 30);
+        JTextField result = new JTextField("", 40);             // added text field for showing calcuation
+        result.setHorizontalAlignment(SwingConstants.RIGHT);    // text alignment is set to right for the text field
+
+        result.setBounds(20, 20, 550, 40);                    //      public void setBounds(int x,int y,int width,int height)
         frame.add(result);
 
+        
+        // creating buttons
         JButton btnforpoint = new JButton(".");
         JButton btnfordigit0 = new JButton("0");
         JButton btnforplusminus = new JButton("±");
@@ -70,6 +69,8 @@ public class Calc {
         JButton btnforroot = new JButton("√");
         JButton btnfordivide = new JButton("/");
 
+        // setting xy co-ordinate , height width for buttons
+        // public void setBounds(int x,int y,int width,int height)
         btnforpoint.setBounds(30, 480, 50, 50);
         btnfordigit0.setBounds(90, 480, 50, 50);
         btnforplusminus.setBounds(150, 480, 50, 50);
@@ -91,6 +92,8 @@ public class Calc {
         btnforroot.setBounds(150, 160, 50, 50);
         btnfordivide.setBounds(210, 160, 50, 50);
 
+        // adding buttons to the frame 
+        
         frame.add(btnforpoint);
         frame.add(btnfordigit0);
         frame.add(btnfordigit1);
@@ -112,8 +115,8 @@ public class Calc {
         frame.add(btnforroot);
         frame.add(btnfordivide);
 
-        frame.setLayout(null);
-        frame.setVisible(true);
+        frame.setLayout(null);          // diabling layout manager
+        frame.setVisible(true);         // seeting the main frame visible
 
     }
 
