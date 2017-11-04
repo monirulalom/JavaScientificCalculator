@@ -13,7 +13,7 @@ public class Calc {
 
         frame.setIconImage(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/calc/icon.png")).getImage()); // Setting icon for the frame
 
-        frame.setSize(600, 600);   // setting frame size 600x600px
+        frame.setSize(600, 550);   // setting frame size 600x600px
         frame.setResizable(false);  // this prevents resizing windows 
 
         JMenuBar menubar = new JMenuBar();         // Crating a menubar
@@ -67,26 +67,26 @@ public class Calc {
 
         // setting xy co-ordinate , height width for buttons
         // public void setBounds(int x,int y,int width,int height)
-        btnforpoint.setBounds(30, 480, 50, 50);
-        btnfordigit0.setBounds(90, 480, 50, 50);
-        btnforplusminus.setBounds(150, 480, 50, 50);
-        btnforequal.setBounds(210, 480, 50, 50);
-        btnfordigit1.setBounds(30, 400, 50, 50);
-        btnfordigit2.setBounds(90, 400, 50, 50);
-        btnfordigit3.setBounds(150, 400, 50, 50);
-        btnforplus.setBounds(210, 400, 50, 50);
-        btnfordigit4.setBounds(30, 320, 50, 50);
-        btnfordigit5.setBounds(90, 320, 50, 50);
-        btnfordigit6.setBounds(150, 320, 50, 50);
-        btnforminus.setBounds(210, 320, 50, 50);
-        btnfordigit7.setBounds(30, 240, 50, 50);
-        btnfordigit8.setBounds(90, 240, 50, 50);
-        btnfordigit9.setBounds(150, 240, 50, 50);
-        btnformulti.setBounds(210, 240, 50, 50);
-        btnforbksp.setBounds(30, 160, 50, 50);
-        btnforc.setBounds(90, 160, 50, 50);
-        btnforroot.setBounds(150, 160, 50, 50);
-        btnfordivide.setBounds(210, 160, 50, 50);
+        btnforpoint.setBounds(30, 420, 50, 50);
+        btnfordigit0.setBounds(90, 420, 50, 50);
+        btnforplusminus.setBounds(150, 420, 50, 50);
+        btnforequal.setBounds(210, 420, 50, 50);
+        btnfordigit1.setBounds(30, 340, 50, 50);
+        btnfordigit2.setBounds(90, 340, 50, 50);
+        btnfordigit3.setBounds(150, 340, 50, 50);
+        btnforplus.setBounds(210, 340, 50, 50);
+        btnfordigit4.setBounds(30, 260, 50, 50);
+        btnfordigit5.setBounds(90, 260, 50, 50);
+        btnfordigit6.setBounds(150, 260, 50, 50);
+        btnforminus.setBounds(210, 260, 50, 50);
+        btnfordigit7.setBounds(30, 180, 50, 50);
+        btnfordigit8.setBounds(90, 180, 50, 50);
+        btnfordigit9.setBounds(150, 180, 50, 50);
+        btnformulti.setBounds(210, 180, 50, 50);
+        btnforbksp.setBounds(30, 100, 50, 50);
+        btnforc.setBounds(90, 100, 50, 50);
+        btnforroot.setBounds(150, 100, 50, 50);
+        btnfordivide.setBounds(210, 100, 50, 50);
 
         // adding buttons to the frame 
         
