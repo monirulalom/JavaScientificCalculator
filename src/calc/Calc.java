@@ -1,11 +1,7 @@
 package calc;
 
-import static com.sun.javafx.scene.control.skin.Utils.getResource;
 import java.awt.*;
-import java.awt.Toolkit.*;
 import java.awt.event.*;
-import java.io.*;
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import static javax.swing.JFrame.*;
 
