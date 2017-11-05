@@ -18,7 +18,7 @@ public class Calc {
 
         frame.setIconImage(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/calc/icon.png")).getImage()); // Setting icon for the frame
 
-        frame.setSize(600, 550);   // setting frame size 600x600px
+        frame.setSize(580, 550);   // setting frame size 600x600px
         frame.setResizable(false);  // this prevents resizing windows 
 
         JMenuBar menubar = new JMenuBar();         // Crating a menubar
@@ -44,7 +44,7 @@ public class Calc {
         JTextField result = new JTextField("", 40);             // added text field for showing calcuation
         result.setHorizontalAlignment(SwingConstants.RIGHT);    // text alignment is set to right for the text field
 
-        result.setBounds(20, 20, 550, 40);                    //      public void setBounds(int x,int y,int width,int height)
+        result.setBounds(20, 20, 530, 40);                    //      public void setBounds(int x,int y,int width,int height)
         frame.add(result);
 
         // creating buttons
@@ -93,10 +93,15 @@ public class Calc {
         JButton btnforatan = new JButton("atan");
         
         
+        // row 5
         JButton btnforbksp = new JButton("←");
         JButton btnforc = new JButton("C");
         JButton btnforroot = new JButton("√");
         JButton btnfordivide = new JButton("÷");
+        JButton btnforlog = new JButton("log");
+        JButton btnforln = new JButton("ln");
+        JButton btnforexp = new JButton("exp");
+        JButton btnformod = new JButton("mod");
 
         // setting xy co-ordinate , height width for buttons
         // public void setBounds(int x,int y,int width,int height)
@@ -141,11 +146,15 @@ public class Calc {
         btnforatan.setBounds(480,180,65,50);
         
         
-        
+        // row 5 
         btnforbksp.setBounds(30, 100, 50, 50);
         btnforc.setBounds(90, 100, 50, 50);
         btnforroot.setBounds(150, 100, 50, 50);
         btnfordivide.setBounds(210, 100, 50, 50);
+        btnforlog.setBounds(270,100,65,50);
+        btnforln.setBounds(340,100,65,50);
+        btnforexp.setBounds(410,100,65,50);
+        btnformod.setBounds(480,100,65,50);
         // adding buttons to the frame 
         frame.add(btnforpoint);
         frame.add(btnfordigit0);
@@ -183,6 +192,11 @@ public class Calc {
         frame.add(btnforc);
         frame.add(btnforroot);
         frame.add(btnfordivide);
+        frame.add(btnforlog);
+        frame.add(btnforln);
+        frame.add(btnforexp);
+        frame.add(btnformod);
+        
 
         // Action listeners
         btnfordigit1.addActionListener(new ActionListener() {
