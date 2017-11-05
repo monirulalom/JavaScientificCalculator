@@ -362,6 +362,24 @@ public class Calc {
 
             }
         });
+        
+        btnforxy.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                firstvalue = Double.parseDouble(result.getText());
+                result.setText("");
+                operator = "x^y";
+
+            }
+        });
+        btnforexp.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                double exp = Double.parseDouble(result.getText());
+                exp = Math.pow(10, exp);
+
+            }
+        });
 
         btnforequal.addActionListener(new ActionListener() {
             @Override
@@ -386,7 +404,45 @@ public class Calc {
                     double div = firstvalue / secondvalue;
                     ans = String.format("%.2f", div);
                     result.setText(ans);
+                }else if (operator == "x^y") {
+                    
+                    //System.out.println("firstvalue" + firstvalue + "second" + secondvalue );
+                    double pow = Math.pow(firstvalue , secondvalue) ;
+                    ans = Double.toString(pow);
+                    result.setText(ans);
                 }
+
+            }
+        });
+         btnforx2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+               double x = Double.parseDouble(result.getText());
+                x = x*x;
+                result.setText(Double.toString(x));
+                
+
+            }
+        });
+         
+         btnforx3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+               double x = Double.parseDouble(result.getText());
+                x = x*x*x;
+                result.setText(Double.toString(x));
+                
+
+            }
+        });
+         
+         btnforx3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+               double x = Double.parseDouble(result.getText());
+                x = x*x*x;
+                result.setText(Double.toString(x));
+                
 
             }
         });
