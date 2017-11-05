@@ -7,10 +7,11 @@ import static javax.swing.JFrame.*;
 
 public class Calc {
 
+    static double firstvalue, secondvalue, output;
+    static String operator;
+    Object math;
+
     public static void main(String[] args) {
-        double firstvalue, seconvalue, output;
-        String operation;
-        Object math;
 
         JFrame frame = new JFrame("Scientific Calculator"); // Creating a frame for calculator with tile "Scientific Calculator"
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);  // Stops prgram execution when close button is clicked
@@ -47,6 +48,7 @@ public class Calc {
         frame.add(result);
 
         // creating buttons
+        //row 1
         JButton btnforpoint = new JButton(".");
         JButton btnfordigit0 = new JButton("0");
         JButton btnforplusminus = new JButton("±");
@@ -70,6 +72,7 @@ public class Calc {
 
         // setting xy co-ordinate , height width for buttons
         // public void setBounds(int x,int y,int width,int height)
+        // row 1
         btnforpoint.setBounds(30, 420, 50, 50);
         btnfordigit0.setBounds(90, 420, 50, 50);
         btnforplusminus.setBounds(150, 420, 50, 50);
@@ -90,7 +93,6 @@ public class Calc {
         btnforc.setBounds(90, 100, 50, 50);
         btnforroot.setBounds(150, 100, 50, 50);
         btnfordivide.setBounds(210, 100, 50, 50);
-
         // adding buttons to the frame 
         frame.add(btnforpoint);
         frame.add(btnfordigit0);
@@ -210,6 +212,14 @@ public class Calc {
             }
         });
 
+        btnforroot.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                double root = Math.sqrt(Double.parseDouble(String.valueOf(result.getText())));
+                result.setText(String.valueOf(root));
+            }
+        });
+
         btnforc.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
@@ -233,7 +243,72 @@ public class Calc {
             }
         });
 
-        frame.setLayout(null);          // diabling layout manager
+        btnforplus.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                firstvalue = Double.parseDouble(result.getText());
+                result.setText("");
+                operator = "+";
+
+            }
+        });
+        btnforminus.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                firstvalue = Double.parseDouble(result.getText());
+                result.setText("");
+                operator = "-";
+
+            }
+        });
+        btnformulti.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                firstvalue = Double.parseDouble(result.getText());
+                result.setText("");
+                operator = "*";
+
+            }
+        });
+        btnfordivide.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                firstvalue = Double.parseDouble(result.getText());
+                result.setText("");
+                operator = "/";
+
+            }
+        });
+
+        btnforequal.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                String ans;
+
+                secondvalue = Double.parseDouble(result.getText());
+
+                if (operator == "+") {
+                    double sum = firstvalue + secondvalue;
+                    ans = String.format("%.2f", sum);
+                    result.setText(ans);
+                } else if (operator == "-") {
+                    double sub = firstvalue - secondvalue;
+                    ans = String.format("%.2f", sub);
+                    result.setText(ans);
+                } else if (operator == "*") {
+                    double mul = firstvalue * secondvalue;
+                    ans = String.format("%.2f", mul);
+                    result.setText(ans);
+                } else if (operator == "/") {
+                    double div = firstvalue / secondvalue;
+                    ans = String.format("%.2f", div);
+                    result.setText(ans);
+                }
+
+            }
+        });
+
+        frame.setLayout(null);          // diabling flow layout
         frame.setVisible(true);         // seeting the main frame visible
 
     }
