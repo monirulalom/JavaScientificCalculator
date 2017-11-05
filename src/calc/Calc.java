@@ -53,22 +53,50 @@ public class Calc {
         JButton btnfordigit0 = new JButton("0");
         JButton btnforplusminus = new JButton("±");
         JButton btnforequal = new JButton("=");
+        JButton btnforx3 = new JButton("x^3");
+        JButton btnforbin = new JButton("bin");
+        JButton btnforhex = new JButton("hex");
+        JButton btnforoct = new JButton("oct");
+        
+        //row 2
         JButton btnfordigit1 = new JButton("1");
         JButton btnfordigit2 = new JButton("2");
         JButton btnfordigit3 = new JButton("3");
         JButton btnforplus = new JButton("+");
+        JButton btnforx2 = new JButton("x^2");
+        JButton btnforcos = new JButton("cos");
+        JButton btnforcosh = new JButton("cosh");
+        JButton btnforacos = new JButton("acos");
+        
+        
+        // row 3
+        
         JButton btnfordigit4 = new JButton("4");
         JButton btnfordigit5 = new JButton("5");
         JButton btnfordigit6 = new JButton("6");
         JButton btnforminus = new JButton("-");
+        JButton btnforxy = new JButton("x^y");
+        JButton btnforsin = new JButton("sin");
+        JButton btnforsinh = new JButton("sinh");
+        JButton btnforasin = new JButton("asin");
+        
+        
+        
+        //row 4
         JButton btnfordigit7 = new JButton("7");
         JButton btnfordigit8 = new JButton("8");
         JButton btnfordigit9 = new JButton("9");
-        JButton btnformulti = new JButton("*");
+        JButton btnformulti = new JButton("×");
+        JButton btnforpi = new JButton("π");
+        JButton btnfortan = new JButton("tan");
+        JButton btnfortanh = new JButton("tanh");
+        JButton btnforatan = new JButton("atan");
+        
+        
         JButton btnforbksp = new JButton("←");
         JButton btnforc = new JButton("C");
         JButton btnforroot = new JButton("√");
-        JButton btnfordivide = new JButton("/");
+        JButton btnfordivide = new JButton("÷");
 
         // setting xy co-ordinate , height width for buttons
         // public void setBounds(int x,int y,int width,int height)
@@ -77,18 +105,43 @@ public class Calc {
         btnfordigit0.setBounds(90, 420, 50, 50);
         btnforplusminus.setBounds(150, 420, 50, 50);
         btnforequal.setBounds(210, 420, 50, 50);
+        btnforx3.setBounds(270,420,65,50);
+        btnforbin.setBounds(340,420,65,50);
+        btnforhex.setBounds(410,420,65,50);
+        btnforoct.setBounds(480,420,65,50);
+        
+        // row 2
         btnfordigit1.setBounds(30, 340, 50, 50);
         btnfordigit2.setBounds(90, 340, 50, 50);
         btnfordigit3.setBounds(150, 340, 50, 50);
         btnforplus.setBounds(210, 340, 50, 50);
+        btnforx2.setBounds(270,340,65,50);
+        btnforsin.setBounds(340,340,65,50);
+        btnforsinh.setBounds(410,340,65,50);
+        btnforasin.setBounds(480,340,65,50);
+        //row 3
         btnfordigit4.setBounds(30, 260, 50, 50);
         btnfordigit5.setBounds(90, 260, 50, 50);
         btnfordigit6.setBounds(150, 260, 50, 50);
         btnforminus.setBounds(210, 260, 50, 50);
+        btnforxy.setBounds(270,260,65,50);
+        btnforcos.setBounds(340,260,65,50);
+        btnforcosh.setBounds(410,260,65,50);
+        btnforacos.setBounds(480,260,65,50);
+        
+        
+        //row4
         btnfordigit7.setBounds(30, 180, 50, 50);
         btnfordigit8.setBounds(90, 180, 50, 50);
         btnfordigit9.setBounds(150, 180, 50, 50);
         btnformulti.setBounds(210, 180, 50, 50);
+        btnforpi.setBounds(270,180,65,50);
+        btnfortan.setBounds(340,180,65,50);
+        btnfortanh.setBounds(410,180,65,50);
+        btnforatan.setBounds(480,180,65,50);
+        
+        
+        
         btnforbksp.setBounds(30, 100, 50, 50);
         btnforc.setBounds(90, 100, 50, 50);
         btnforroot.setBounds(150, 100, 50, 50);
@@ -99,17 +152,33 @@ public class Calc {
         frame.add(btnfordigit1);
         frame.add(btnforplusminus);
         frame.add(btnforequal);
+        frame.add(btnforx3);
+        frame.add(btnforbin);
+        frame.add(btnforhex);
+        frame.add(btnforoct);
         frame.add(btnfordigit2);
         frame.add(btnfordigit3);
         frame.add(btnforplus);
+        frame.add(btnforx2);
+        frame.add(btnforsin);
+        frame.add(btnforsinh);
+        frame.add(btnforasin);
         frame.add(btnfordigit4);
         frame.add(btnfordigit5);
         frame.add(btnfordigit6);
         frame.add(btnforminus);
+        frame.add(btnforxy);
+        frame.add(btnforcos);
+        frame.add(btnforcosh);
+        frame.add(btnforacos);
         frame.add(btnfordigit7);
         frame.add(btnfordigit8);
         frame.add(btnfordigit9);
         frame.add(btnformulti);
+        frame.add(btnforpi);
+        frame.add(btnfortan);
+        frame.add(btnfortanh);
+        frame.add(btnforatan);
         frame.add(btnforbksp);
         frame.add(btnforc);
         frame.add(btnforroot);
@@ -177,7 +246,7 @@ public class Calc {
         btnfordigit8.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                String displaytext = result.getText() + btnfordigit9.getText();
+                String displaytext = result.getText() + btnfordigit8.getText();
                 result.setText(displaytext);
 
             }
@@ -266,7 +335,7 @@ public class Calc {
             public void actionPerformed(ActionEvent evt) {
                 firstvalue = Double.parseDouble(result.getText());
                 result.setText("");
-                operator = "*";
+                operator = "×";
 
             }
         });
@@ -275,7 +344,7 @@ public class Calc {
             public void actionPerformed(ActionEvent evt) {
                 firstvalue = Double.parseDouble(result.getText());
                 result.setText("");
-                operator = "/";
+                operator = "÷";
 
             }
         });
@@ -295,11 +364,11 @@ public class Calc {
                     double sub = firstvalue - secondvalue;
                     ans = String.format("%.2f", sub);
                     result.setText(ans);
-                } else if (operator == "*") {
+                } else if (operator == "×") {
                     double mul = firstvalue * secondvalue;
                     ans = String.format("%.2f", mul);
                     result.setText(ans);
-                } else if (operator == "/") {
+                } else if (operator == "÷") {
                     double div = firstvalue / secondvalue;
                     ans = String.format("%.2f", div);
                     result.setText(ans);
