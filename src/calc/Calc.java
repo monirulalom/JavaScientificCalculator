@@ -9,7 +9,6 @@ public class Calc {
 
     static double firstvalue, secondvalue, memory = 0.0;
     static String operator;
-    Object math;
 
     public static void main(String[] args) {
 
@@ -107,7 +106,7 @@ public class Calc {
         JButton btnfordigit8 = new JButton("8");
         JButton btnfordigit9 = new JButton("9");
         JButton btnformulti = new JButton("×");
-        JButton btnforfact = new JButton("!");
+        JButton btnforfact = new JButton("x!");
         JButton btnfortan = new JButton("tan");
         JButton btnfortanh = new JButton("tanh");
         JButton btnforatan = new JButton("tan⁻¹");
@@ -315,7 +314,12 @@ public class Calc {
         btnforpi.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                String displaytext = result.getText() + btnfordigit0.getText();
+                String displaytext;
+                if (result.getText().equals("")) {
+                    displaytext = String.valueOf(Math.PI);
+                } else {
+                    displaytext = Double.toString(Double.parseDouble(result.getText()) * Math.PI);
+                }
                 result.setText(displaytext);
 
             }
@@ -406,6 +410,17 @@ public class Calc {
                 firstvalue = Double.parseDouble(result.getText());
                 result.setText("");
                 operator = "xʸ";
+
+            }
+        });
+
+        btnforfact.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+
+                long x = Long.valueOf(result.getText());
+                x = fact(x);
+                result.setText(String.valueOf(x));
 
             }
         });
@@ -554,9 +569,150 @@ public class Calc {
             }
 
         });
+        btnforsin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                double angle = Double.parseDouble(result.getText());
+                angle = Math.sin(Math.toRadians(angle));
+                result.setText(Double.toString(angle));
+            }
+
+        });
+
+        btnforsinh.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                double angle = Double.parseDouble(result.getText());
+                angle = Math.sinh(Math.toRadians(angle));
+                result.setText(Double.toString(angle));
+            }
+
+        });
+        btnforasin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                double angle = Double.parseDouble(result.getText());
+                angle = Math.toDegrees(Math.asin(angle));
+                result.setText(Double.toString(angle));
+            }
+
+        });
+
+        btnforcos.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                double angle = Double.parseDouble(result.getText());
+                angle = Math.cos(Math.toRadians(angle));
+                result.setText(Double.toString(angle));
+            }
+
+        });
+
+        btnforcosh.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                double angle = Double.parseDouble(result.getText());
+                angle = Math.cosh(Math.toRadians(angle));
+                result.setText(Double.toString(angle));
+            }
+
+        });
+        btnforacos.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                double angle = Double.parseDouble(result.getText());
+                angle = Math.toDegrees(Math.acos(angle));
+                result.setText(Double.toString(angle));
+            }
+
+        });
+
+        btnfortan.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                double angle = Double.parseDouble(result.getText());
+                angle = Math.sin(Math.toRadians(angle));
+                result.setText(Double.toString(angle));
+            }
+
+        });
+
+        btnfortanh.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                double angle = Double.parseDouble(result.getText());
+                angle = Math.sinh(Math.toRadians(angle));
+                result.setText(Double.toString(angle));
+            }
+
+        });
+        btnforatan.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                double angle = Double.parseDouble(result.getText());
+                angle = Math.toDegrees(Math.asin(angle));
+                result.setText(Double.toString(angle));
+            }
+
+        });
+
+        btnformplus.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                double m = Double.parseDouble(result.getText());
+                memory = m + memory;
+                result.setText(Double.toString(memory));
+            }
+
+        });
+
+        btnformminus.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                double m = Double.parseDouble(result.getText());
+                memory = memory - m;
+                result.setText(Double.toString(memory));
+            }
+
+        });
+
+        btnformr.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                result.setText(Double.toString(memory));
+            }
+
+        });
+
+        btnforms.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                double m = Double.parseDouble(result.getText());
+                memory = m;
+                result.setText(Double.toString(memory));
+            }
+
+        });
+
+        btnformc.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                memory = 0;
+                result.setText(Double.toString(memory));
+            }
+
+        });
 
         frame.setLayout(null);          // diabling flow layout
         frame.setVisible(true);         // seeting the main frame visible
 
+    }
+
+    public static long fact(long n) {
+        if (n <= 1) {
+            return 1;
+        } else {
+            return n * fact(n - 1);
+        }
     }
 }
