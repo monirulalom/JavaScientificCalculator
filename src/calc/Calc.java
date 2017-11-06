@@ -43,6 +43,8 @@ public class Calc {
 
         JTextField result = new JTextField("", 40);             // added text field for showing calcuation
         result.setHorizontalAlignment(SwingConstants.RIGHT);    // text alignment is set to right for the text field
+        Font font = new Font("Arial", Font.BOLD, 20);
+        result.setFont(font);
 
         result.setBounds(20, 20, 600, 40);                    //      public void setBounds(int x,int y,int width,int height)
         frame.add(result);
@@ -70,7 +72,7 @@ public class Calc {
         //row 1
         JButton btnforpoint = new JButton(".");
         JButton btnfordigit0 = new JButton("0");
-        JButton btnforplusminus = new JButton("±");
+        JButton btnforpi = new JButton("Π");
         JButton btnforequal = new JButton("=");
         JButton btnforx3 = new JButton("x³");
         JButton btnforbin = new JButton("bin");
@@ -105,7 +107,7 @@ public class Calc {
         JButton btnfordigit8 = new JButton("8");
         JButton btnfordigit9 = new JButton("9");
         JButton btnformulti = new JButton("×");
-        JButton btnforpi = new JButton("π");
+        JButton btnforfact = new JButton("!");
         JButton btnfortan = new JButton("tan");
         JButton btnfortanh = new JButton("tanh");
         JButton btnforatan = new JButton("tan⁻¹");
@@ -127,7 +129,7 @@ public class Calc {
         // row 1
         btnforpoint.setBounds(30, 420, 50, 50);
         btnfordigit0.setBounds(90, 420, 50, 50);
-        btnforplusminus.setBounds(150, 420, 50, 50);
+        btnforpi.setBounds(150, 420, 50, 50);
         btnforequal.setBounds(210, 420, 50, 50);
         btnforx3.setBounds(270, 420, 65, 50);
         btnforbin.setBounds(340, 420, 65, 50);
@@ -161,7 +163,7 @@ public class Calc {
         btnfordigit8.setBounds(90, 180, 50, 50);
         btnfordigit9.setBounds(150, 180, 50, 50);
         btnformulti.setBounds(210, 180, 50, 50);
-        btnforpi.setBounds(270, 180, 65, 50);
+        btnforfact.setBounds(270, 180, 65, 50);
         btnfortan.setBounds(340, 180, 65, 50);
         btnfortanh.setBounds(410, 180, 65, 50);
         btnforatan.setBounds(480, 180, 65, 50);
@@ -181,7 +183,7 @@ public class Calc {
         frame.add(btnforpoint);
         frame.add(btnfordigit0);
         frame.add(btnfordigit1);
-        frame.add(btnforplusminus);
+        frame.add(btnforpi);
         frame.add(btnforequal);
         frame.add(btnforx3);
         frame.add(btnforbin);
@@ -209,7 +211,7 @@ public class Calc {
         frame.add(btnfordigit8);
         frame.add(btnfordigit9);
         frame.add(btnformulti);
-        frame.add(btnforpi);
+        frame.add(btnforfact);
         frame.add(btnfortan);
         frame.add(btnfortanh);
         frame.add(btnforatan);
@@ -302,6 +304,15 @@ public class Calc {
         });
 
         btnfordigit0.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                String displaytext = result.getText() + btnfordigit0.getText();
+                result.setText(displaytext);
+
+            }
+        });
+
+        btnforpi.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
                 String displaytext = result.getText() + btnfordigit0.getText();
@@ -513,20 +524,26 @@ public class Calc {
             }
 
         });
-        
-        
 
         btnforexp.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 double x = Double.parseDouble(result.getText());
-                x = Math.pow(10,x);
+                x = Math.pow(10, x);
                 result.setText(Double.toString(x));
             }
 
         });
-        
-                
+
+        btnforex.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                double x = Double.parseDouble(result.getText());
+                x = Math.exp(x);
+                result.setText(Double.toString(x));
+            }
+
+        });
 
         btnforex.addActionListener(new ActionListener() {
             @Override
