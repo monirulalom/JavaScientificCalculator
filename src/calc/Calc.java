@@ -7,7 +7,7 @@ import static javax.swing.JFrame.*;
 
 public class Calc {
 
-    static double firstvalue, secondvalue, output;
+    static double firstvalue, secondvalue, memory = 0.0 ;
     static String operator;
     Object math;
 
@@ -18,7 +18,7 @@ public class Calc {
 
         frame.setIconImage(new ImageIcon(Toolkit.getDefaultToolkit().getClass().getResource("/calc/icon.png")).getImage()); // Setting icon for the frame
 
-        frame.setSize(580, 550);   // setting frame size 600x600px
+        frame.setSize(650, 550);   // setting frame size 600x600px
         frame.setResizable(false);  // this prevents resizing windows 
 
         JMenuBar menubar = new JMenuBar();         // Crating a menubar
@@ -44,7 +44,7 @@ public class Calc {
         JTextField result = new JTextField("", 40);             // added text field for showing calcuation
         result.setHorizontalAlignment(SwingConstants.RIGHT);    // text alignment is set to right for the text field
 
-        result.setBounds(20, 20, 530, 40);                    //      public void setBounds(int x,int y,int width,int height)
+        result.setBounds(20, 20, 600, 40);                    //      public void setBounds(int x,int y,int width,int height)
         frame.add(result);
 
         // creating buttons
@@ -53,20 +53,22 @@ public class Calc {
         JButton btnfordigit0 = new JButton("0");
         JButton btnforplusminus = new JButton("±");
         JButton btnforequal = new JButton("=");
-        JButton btnforx3 = new JButton("x^3");
+        JButton btnforx3 = new JButton("x³");
         JButton btnforbin = new JButton("bin");
         JButton btnforhex = new JButton("hex");
         JButton btnforoct = new JButton("oct");
+        JButton btnformplus = new JButton("M+");
         
         //row 2
         JButton btnfordigit1 = new JButton("1");
         JButton btnfordigit2 = new JButton("2");
         JButton btnfordigit3 = new JButton("3");
         JButton btnforplus = new JButton("+");
-        JButton btnforx2 = new JButton("x^2");
+        JButton btnforx2 = new JButton("x²");
         JButton btnforcos = new JButton("cos");
         JButton btnforcosh = new JButton("cosh");
-        JButton btnforacos = new JButton("acos");
+        JButton btnforacos = new JButton("cos⁻¹");
+        JButton btnformminus = new JButton("M-");
         
         
         // row 3
@@ -75,10 +77,11 @@ public class Calc {
         JButton btnfordigit5 = new JButton("5");
         JButton btnfordigit6 = new JButton("6");
         JButton btnforminus = new JButton("-");
-        JButton btnforxy = new JButton("x^y");
+        JButton btnforxy = new JButton("xʸ");
         JButton btnforsin = new JButton("sin");
         JButton btnforsinh = new JButton("sinh");
-        JButton btnforasin = new JButton("asin");
+        JButton btnforasin = new JButton("sin⁻¹");
+        JButton btnformr = new JButton("MR");
         
         
         
@@ -90,7 +93,8 @@ public class Calc {
         JButton btnforpi = new JButton("π");
         JButton btnfortan = new JButton("tan");
         JButton btnfortanh = new JButton("tanh");
-        JButton btnforatan = new JButton("atan");
+        JButton btnforatan = new JButton("tan⁻¹");
+        JButton btnforms = new JButton("MS");
         
         
         // row 5
@@ -100,8 +104,9 @@ public class Calc {
         JButton btnfordivide = new JButton("÷");
         JButton btnforlog = new JButton("log");
         JButton btnforln = new JButton("ln");
-        JButton btnforexp = new JButton("exp");
-        JButton btnformod = new JButton("mod");
+        JButton btnforexp = new JButton("10ˣ");
+        JButton btnforex = new JButton("eˣ");
+        JButton btnformc = new JButton("MC");
 
         // setting xy co-ordinate , height width for buttons
         // public void setBounds(int x,int y,int width,int height)
@@ -114,6 +119,7 @@ public class Calc {
         btnforbin.setBounds(340,420,65,50);
         btnforhex.setBounds(410,420,65,50);
         btnforoct.setBounds(480,420,65,50);
+        btnformplus.setBounds(550,420,65,50);
         
         // row 2
         btnfordigit1.setBounds(30, 340, 50, 50);
@@ -124,6 +130,7 @@ public class Calc {
         btnforsin.setBounds(340,340,65,50);
         btnforsinh.setBounds(410,340,65,50);
         btnforasin.setBounds(480,340,65,50);
+        btnformminus.setBounds(550,340,65,50);
         //row 3
         btnfordigit4.setBounds(30, 260, 50, 50);
         btnfordigit5.setBounds(90, 260, 50, 50);
@@ -133,6 +140,7 @@ public class Calc {
         btnforcos.setBounds(340,260,65,50);
         btnforcosh.setBounds(410,260,65,50);
         btnforacos.setBounds(480,260,65,50);
+        btnformr.setBounds(550,260,65,50);
         
         
         //row4
@@ -144,6 +152,7 @@ public class Calc {
         btnfortan.setBounds(340,180,65,50);
         btnfortanh.setBounds(410,180,65,50);
         btnforatan.setBounds(480,180,65,50);
+        btnforms.setBounds(550,180,65,50);
         
         
         // row 5 
@@ -154,7 +163,8 @@ public class Calc {
         btnforlog.setBounds(270,100,65,50);
         btnforln.setBounds(340,100,65,50);
         btnforexp.setBounds(410,100,65,50);
-        btnformod.setBounds(480,100,65,50);
+        btnforex.setBounds(480,100,65,50);
+        btnformc.setBounds(550,100,65,50);
         // adding buttons to the frame 
         frame.add(btnforpoint);
         frame.add(btnfordigit0);
@@ -165,6 +175,7 @@ public class Calc {
         frame.add(btnforbin);
         frame.add(btnforhex);
         frame.add(btnforoct);
+        frame.add(btnformplus);
         frame.add(btnfordigit2);
         frame.add(btnfordigit3);
         frame.add(btnforplus);
@@ -172,6 +183,7 @@ public class Calc {
         frame.add(btnforsin);
         frame.add(btnforsinh);
         frame.add(btnforasin);
+        frame.add(btnformminus);
         frame.add(btnfordigit4);
         frame.add(btnfordigit5);
         frame.add(btnfordigit6);
@@ -180,6 +192,7 @@ public class Calc {
         frame.add(btnforcos);
         frame.add(btnforcosh);
         frame.add(btnforacos);
+        frame.add(btnformr);
         frame.add(btnfordigit7);
         frame.add(btnfordigit8);
         frame.add(btnfordigit9);
@@ -188,6 +201,7 @@ public class Calc {
         frame.add(btnfortan);
         frame.add(btnfortanh);
         frame.add(btnforatan);
+        frame.add(btnforms);
         frame.add(btnforbksp);
         frame.add(btnforc);
         frame.add(btnforroot);
@@ -195,7 +209,8 @@ public class Calc {
         frame.add(btnforlog);
         frame.add(btnforln);
         frame.add(btnforexp);
-        frame.add(btnformod);
+        frame.add(btnforex);
+        frame.add(btnformc);
         
 
         // Action listeners
@@ -368,7 +383,7 @@ public class Calc {
             public void actionPerformed(ActionEvent evt) {
                 firstvalue = Double.parseDouble(result.getText());
                 result.setText("");
-                operator = "x^y";
+                operator = "xʸ";
 
             }
         });
@@ -404,7 +419,7 @@ public class Calc {
                     double div = firstvalue / secondvalue;
                     ans = String.format("%.2f", div);
                     result.setText(ans);
-                }else if (operator == "x^y") {
+                }else if (operator == "xʸ") {
                     
                     //System.out.println("firstvalue" + firstvalue + "second" + secondvalue );
                     double pow = Math.pow(firstvalue , secondvalue) ;
