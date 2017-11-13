@@ -20,7 +20,7 @@ public class Calc {
         frame.setSize(650, 550);   // setting frame size 600x600px
         frame.setResizable(false);  // this prevents resizing windows 
 
-        JMenuBar menubar = new JMenuBar();         // Crating a menubar
+        JMenuBar menubar = new JMenuBar();         // Creating a menubar
         JMenuItem menu = new JMenuItem("Credits");  // adding a menu item in the menubar
         menubar.add(menu);                          // adding created menu item to the menubar
         frame.setJMenuBar(menubar);                 // ading menubar to the frane
@@ -42,10 +42,10 @@ public class Calc {
 
         JTextField result = new JTextField("", 40);             // added text field for showing calcuation
         result.setHorizontalAlignment(SwingConstants.RIGHT);    // text alignment is set to right for the text field
-        Font font = new Font("Arial", Font.BOLD, 20);
+        Font font = new Font("Arial", Font.BOLD, 40);
         result.setFont(font);
 
-        result.setBounds(20, 20, 600, 40);                    //      public void setBounds(int x,int y,int width,int height)
+        result.setBounds(20, 20, 600, 55);                    //      public void setBounds(int x,int y,int width,int height)
         frame.add(result);
 
         result.addKeyListener(new KeyListener() {
@@ -554,17 +554,8 @@ public class Calc {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 double x = Double.parseDouble(result.getText());
-                x = Math.exp(x);
-                result.setText(Double.toString(x));
-            }
-
-        });
-
-        btnforex.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                double x = Double.parseDouble(result.getText());
-                x = Math.exp(x);
+                System.out.println(x);
+                x = Math.pow(Math.E,x);
                 result.setText(Double.toString(x));
             }
 
