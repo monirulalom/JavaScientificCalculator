@@ -486,16 +486,6 @@ public class Calc {
             }
         });
 
-        btnforx3.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                double x = Double.parseDouble(result.getText());
-                x = x * x * x;
-                result.setText(Double.toString(x));
-
-            }
-        });
-
         btnforbin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
